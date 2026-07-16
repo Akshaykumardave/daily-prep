@@ -1,9 +1,9 @@
 // two symbols with the same description
 let value1 = Symbol("programiz");
 let value2 = Symbol("programiz");
-console.log(value2.description)
+console.log(value2.description) // programiz
 value2 = 'Akshay'
-console.log(value2.description)
+console.log('value 2 : ', value2.description)
 
 let numVal = Symbol(100);
 let numVal2 = Symbol(100);

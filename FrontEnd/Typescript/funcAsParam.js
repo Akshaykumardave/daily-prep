@@ -10,3 +10,10 @@ console.log(sum);
 //     sum += n
 //     console.log(n + 'at position - ' + index);
 // });
+const arrNum = [1, 2, 3, 4, 5];
+let arrSum = 0;
+const square = (num) => {
+    arrSum += num;
+};
+arrNum.forEach(square);
+console.log(arrSum);

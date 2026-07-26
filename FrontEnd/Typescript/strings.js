@@ -1,0 +1,11 @@
+"use strict";
+let message = 'hello.!!';
+// message[0] = 'H';
+console.log(message); // Output: hello.!! (strings are immutable in TypeScript)
+let greeting = 'Hello, World!';
+console.log(greeting);
+let greetingNew = new String('Hello, TypeScript!');
+console.log(greetingNew);
+console.log(greetingNew.isWellFormed()); // true
+let abc = 'abc"\uD800xyz';
+console.log(abc.toWellFormed());

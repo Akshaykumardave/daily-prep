@@ -1,4 +1,4 @@
-const weakSet = new WeakSet();
+const weakSet = new WeakSet(); // can only contain objects and not primitive values
 let obj = {
     1:'a',
     2: 'b',

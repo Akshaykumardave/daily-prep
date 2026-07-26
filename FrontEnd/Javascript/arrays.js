@@ -6,10 +6,10 @@ age.pop(); // removes the last element of the array
 console.log(age);
 
 age.splice(1, 1); // removes the element at index 1
-console.log("after splice", age);
+console.log("after splice", age); // output - [ 10, 30, 40, 50 ]
 
 let val = age.toSpliced(2, 1, 25); // creates a new array with the element at index 2 replaced by 25
-console.log("after toSpliced", val);
+console.log("after toSpliced", val); // output - [ 10, 30, 25, 50 ]
 
 console.log("original array", age.toString()); // converts the array to a string
 console.log("index of 30", age.indexOf(30)); // returns the index of the first occurrence of 30

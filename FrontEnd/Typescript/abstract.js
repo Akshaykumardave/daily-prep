@@ -1,31 +1,22 @@
+"use strict";
 // Abstract class can not be instantiated directly, we can not create object from it.
 // Abstract class are meant to be extended by other classes that provide implementation for their abstracct
 // Abstract class can have both abstract and regular methods 
-
-
-abstract class ShapeClass {
-    abstract calculateArea(): void; // abstract method
-
-    getDimensions(): void { // regular method
+class ShapeClass {
+    getDimensions() {
         console.log('The dimension is');
     }
 }
-
-abstract class Shape {
-    protected dimension: number;
-
-    constructor(dimension: number) {
+class Shape {
+    dimension;
+    constructor(dimension) {
         this.dimension = dimension;
     }
-
-    abstract calculateArea(): number;
 }
-
 class Square extends Shape {
-    calculateArea(): number {
+    calculateArea() {
         return this.dimension * this.dimension;
     }
 }
-
 const square = new Square(5);
 console.log("Area of square:", square.calculateArea());

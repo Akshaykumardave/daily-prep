@@ -9,8 +9,8 @@ function identity<T>(value: T): T {
     return value;
 }
 
-const value1 = identity<string>("Hello");
-const value2 = identity<string>("World");
+const value1 = identity("Hello");
+const value2 = identity("World");
 
 console.log(value1);
 console.log(value2);
@@ -44,10 +44,10 @@ class Container<T> {
     }
 }
 
-const stringContainer = new Container<string>("Generics Test");
+const stringContainer = new Container("Generics Test");
 console.log(stringContainer.getData());
 
-const numbercontainer = new Container<number>(124);
+const numbercontainer = new Container(124);
 console.log(numbercontainer.getData());
 
 
@@ -67,4 +67,4 @@ function getFirstElement<T>(arr: T[]): T {
     return arr[0];
 }
 
-console.log(getFirstElement<string>(["a", "b", "c"]));
+console.log(getFirstElement(["a", "b", "c"]));

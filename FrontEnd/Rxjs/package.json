@@ -1,0 +1,15 @@
+{
+  "name": "rxjs-learning",
+  "version": "1.0.0",
+  "description": "this is for learning purpose only",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Akshay",
+  "license": "ISC",
+  "devDependencies": {
+    "rxjs": "^7.8.2"
+  }
+}

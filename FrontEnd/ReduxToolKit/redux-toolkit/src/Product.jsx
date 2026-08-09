@@ -4,6 +4,7 @@ import { addItem } from "./redux/slice";
 
 const Product = () => {
 
+    // useDispatch gives this component a function to send actions to Redux
     const dispatch = useDispatch();
   return (
     <>
@@ -17,7 +18,10 @@ const Product = () => {
         <p className="description">
             Experience high-quality sound with these wireless headphones.
         </p>
-        <button className="btn" onClick={() => dispatch(addItem(1))}>
+        <button
+          className="btn"
+          onClick={() => dispatch(addItem(1))} // When the button is clicked, send the addItem action to Redux
+        >
             Add to cart
         </button>
       </div>

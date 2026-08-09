@@ -1,19 +1,23 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit" // Import the createSlice helper from Redux Toolkit
 
+// Define the starting state for the cart slice
 const initialState = {
-    value: 0
+    value: 0 // Initial number of items in the cart
 }
 
-// SLICE name
+// Create a slice with the name 'cart'
 const addToCart = createSlice({
-    name: 'cart',
-    initialState,
+    name: 'cart', // Name of the slice used in action types
+    initialState, // Set the initial state for this slice
     reducers: {
-        addItem: (state) => { // action
-            state.value += 1;
+        addItem: (state) => { // Define an action creator called addItem
+            state.value += 1; // Increase the cart value by 1
         }
     }
 });
 
-export const {addItem} = addToCart.actions;
+// Extract the addItem action creator from the slice actions
+export const { addItem } = addToCart.actions;
+
+// Export the reducer so it can be used in the store
 export default addToCart.reducer;

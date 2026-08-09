@@ -1,6 +1,8 @@
 import { useSelector } from "react-redux";
 
 const AddToCart = () => {
+  // useSelector lets React components read data from the Redux store
+  // It gets the current cart value from state.cart.value
   const selector = useSelector((state) => state.cart.value);
   console.log(selector);
   return (

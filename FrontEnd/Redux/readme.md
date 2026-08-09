@@ -1,10 +1,10 @@
-## Redux - It's a state management library, it will basically store and manage all the application's states. The global state of an application is stored in an object tree within a single store
+## Redux - It's a state management library, it will basically store and manage all the application's states. The global state of an application is stored in an object tree within a single store called as Redux store.
 
 State is Read-Only in Redux. What makes Redux predictable is that to make a change in the state of the application, we need to dispatch an action which describes what changes we want to make in the state.
 These actions are then consumed by something known as Recuders, whose sole job is to accept two things(the action and current state of the application) and return new updated instance of the state.
 Recuders do not change any part of the state, rather it produces a new instance of the state with all the necessary updates.
 
-<div style="display:inline"><img src="image.png" alt="Description" width="500" height="300" /> <img src="image-1.png" alt="Description" width="500" height="300" /></div>
+<div style="display:inline"><img src="docs/image.png" alt="Description" width="500" height="300" /> <img src="docs/image-1.png" alt="Description" width="500" height="300" /></div>
 
 
 
@@ -33,6 +33,6 @@ Every Action must have at least a **type** associated with it and data required 
 
 #### Reducers - Reducers are pure JavaScript functions that determine how an application's state changes in response to an action. As the name suggests, take in two things: current state and an action. Then they reduce it (read it & return) to one entity: the new updated instance of the state.
 
-<img src="image-2.png" width="500px" height="300px">
+<img src="docs/image-2.png" width="500px" height="300px">
 
 * There can either be one reducer if it is a simple app or multiple recuders taking care of different parts or slices of the global state in a bigger application. So whenever an action is dispatched, all the reducers are activated.

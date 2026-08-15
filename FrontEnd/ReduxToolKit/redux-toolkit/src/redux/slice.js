@@ -12,12 +12,19 @@ const addToCart = createSlice({
     reducers: {
         addItem: (state) => { // Define an action creator called addItem
             state.value += 1; // Increase the cart value by 1
+        },
+        removeItem: (state) => { 
+            state.value > 0 ? state.value -= 1 : null;
+        },
+        removeAllItems: (state) => { 
+            state.value = 0;
         }
     }
 });
 
 // Extract the addItem action creator from the slice actions
-export const { addItem } = addToCart.actions;
+export const { addItem, removeItem, removeAllItems } = addToCart.actions;
 
 // Export the reducer so it can be used in the store
-export default addToCart.reducer;
+const cartReducer = addToCart.reducer;
+export default cartReducer;

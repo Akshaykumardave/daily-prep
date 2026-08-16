@@ -11,7 +11,6 @@ function App() {
   return (
     <>
     <Header></Header>
-      <h1>React redux toolkit tutorial</h1>
       <Product/>
     </>
   )

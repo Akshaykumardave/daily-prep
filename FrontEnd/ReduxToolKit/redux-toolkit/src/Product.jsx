@@ -11,42 +11,33 @@ const Product = () => {
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
-  const products = useSelector((state) => state.products.items);
-  console.log(products);
+  const productSelector = useSelector((state) => state.products.items);
+  console.log(productSelector);
+
+  const cartSelector = useSelector((state) => state.cart.items);
+  console.log(cartSelector);
 
   return (
     <>
-     <button
-          className="btn"
-          onClick={() => dispatch(removeAllItems())} // When the button is clicked, send the addItem action to Redux
-        >
-          Clear cart
-        </button>
-      <div className="product-image">
-        <img
-          src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAJQA5wMBEQACEQEDEQH/xAAcAAEAAQUBAQAAAAAAAAAAAAACAQADBQYHBAj/xAA+EAABAwMCAwQHBwIEBwAAAAABAAIDBAURBiESMUETUWFxByIyQoGRoRQjUrHB0fAVMyVTkuEWFzRicoKi/8QAGwEAAwEBAQEBAAAAAAAAAAAAAAECAwQFBgf/xAAzEQEBAAIBAwMBBgQFBQAAAAAAAQIRAwQSIQUxQRMiMlFhcbEUM6HwI4HB0eEVNEJSkf/aAAwDAQACEQMRAD8A34L8mfQGFpJv2TTatcZYkwt5E7ILSEQVSJILSAgqhVQVSJJUEpkpWEoJSApOShSNGhIKSCFJoOymgVJoUaUJUUCVNioJWdhxbcsslAVz5RUAqFCUKhhE90mFrjPlFNq2hGFrEkFcKkFUSS0gIK4VSFaUhECVcJKZKTCkBSApAQg1JaCCosNBSCCppiVKhKzoEqaYlZ1UArOxQFY5Q4BWNXAKRwwkkwtsU02reEYWkTTC0iUhXCIK4KQVxKQqJKZJVaCVWiUEwlAUgIQFuonhp4zJUSsijG5c9waB8USW3UmxWv1WtLNCS2CSarcP8iI8P+t2Gn4Ersw9O6jKb7f/AL4/5Z3lxny8J13G7+1bz5PqWfplbz0jlvvlE/XxJus3Hc2uQjrwVDCfrhK+j8vxlD+vj+FeuHWVqe4Cq+0Ubj/nxHh/1Ny36rk5fTOq4/Pbv9PP/P8ARc5sL8s3BUQ1EQkp5WSsPJ0bg4fNefljcb21tCPJZ00KaYlZ1S2VnVCVln7HFtywyi4JUqhNREGFtimmFtCMLWJILSJIKoRBXCpBXCUFUIlRJVQJTJSYSE4FIDS9W66htMQbQmJzn5xPJlzdvwtG7vPYeK9Lp/T8uSfU5PGP9b/swz5ZLqe7ld11XV3CYyuE07+klQckeTRs0fzK9bix4eGawmv3Y3uy92JdVXKc54nJ3qMYJx1GLkd+N4Kn+JxP6dJkt2hPEJpPmidTB9OvbTakudN/eY2ZvcVrOeVNwsZyz6hp3yiSinkt9V3NOA4+I5H5Jc3Dw9Rjrkx2McssPu1v9n1dxuZT3tscLyQGVLNo3+f4T8SF8/1vpWfF9vi84/1n9/3HXxc8y8XxW19F4mnSBUWKEqKYOWOWqqLblz5LglSqEERJtW+CKYWuJGtYkgtIVIKoRBaQqQVxKgnCJWEpklMlBMJztlMOc631aXuFvto7Yy+xGDtMBzc7ujztj3t+nP2Ok6bj4eP6/NP0n+rnzyueXbg0ea3vle50pdWVzz95JjJHgPwgdw2Cyz6zLky7srqNseCYzUeuj0ndKnHY0nBnq4Lny67invdtPo1m6b0cV04Bqawx+DSsb6h/64H9KfNewei6mI9erlJ80v8AqHP8SD6WH4rM/oua1uaWula7puiepc0+9hKPpYX2rCXPQ15o2lzWsq2D4OW/H6jw3xlO2ovBfhqVVb8yOaGPinbzjeMEL0+Ln1q73HPlh8fL12i/S0bvslxHa0z/AFTxjOy9DDkljDLGx0jS+oDb3Q0lXMZLbMQynncc9i48mOP4egPTkvE9U9Nl3z8M/Wf6unh5v/HJvZXzVd0ArKnAcs85tUWyufJUEqFkE4mmFrimmFtikgtYkwtISQqhGFpCSFUKpVRKVQSnCSqCUyarry9tt1vNM0kukbmQMOHFucBgPQuO2egyV6Pp3T4553k5Pu4sebK61Pdp9ptclTEGZ7S51L+Ool4doWDYMHl0WHW+o5cue8vuz2n4ujh4Jhj+fy6BZrDSW6ENYwFx3c5w3JXm9t5Mu7Npcu37rLNjY0eqAtZx4z4RcrS2V+0SpTTHbuUgSAeYU3GU5bGA1FpagvMR44wybm2Ro3BU8fJydPd8d8fgu6zn2nI9R6cqbdMYKtvP+3MBs/z8V7vSdZjyTeP+cc3JxWPFYbmaR7rfXDipZfV9bova4+SZOPLF1vRN3fU00ltrJOOppMcEh5yxH2XeY5Hyz1Xyfq/Rzp+Xux+7f3/B39Py9+Or7tkK8auoSssjWyueqgFJcIJRNNq1xTTat8U01pCILSJIK4RBXCIK4VSqiUqglVCSqCnOawFzyA0bknoE/Yq5O+eXUF3lryC5hlJgB8dmD4M383Fej1vLOm6fDp5763UdPhc87m3/AE/aGUFPuAZHes93UleLhLyZd+Tqzy1NRmRyXTGKkBSQFSaFJoKmhBU2mxt6tVNdaR9PUxhwcNjjks5llhlM8PeLnnxXFdT2GagqnQyglwyWPx7bf3X0PR9ZOTHujl5uLVPSl/fRXCjmqHEPpXcErifagccO+WQ74Lv6zinV9LlhPeeZ+s/vTn47ePOV3AnO6+FteqBWVqtA4rHKxUWyoVDCSTC0xuyNq6MUEFpCMLQkq4kgqhEFcCVcSQThKVbBA7p7JgNd1xoNK18jTh72dm0+LjhdHTY9/Njj+ac/GNrD6GtnZ26klkbh3ZB5B6Oduf2XL1uf1+qzvxv9vZ0cc+nxSfk3UAMb3Y5lXjGN8qZJHIfu5GPH/aQfyVfIJAUpCFJikEFTVCSptMT4qTjA6psjLvQubgCVu7H9xUcXNlwZ909vlVndNOS1lu/ptTTSzM9Y1PZyAjbDvV/XK+p6DqZyckk9nB1HH24uuaZqjV2Ghkc4l/ZBriepbsfyXynW8f0uoz4/wtd3Fe7CZMkVxZNVsrHJcFSogkkxzWmPuVMLfFFILSEYWkIgVcSTVcJKsiVwqlMkp7JKYaN6Vaj/AAeGmyPvJQSPJdHQ2/xEv4FyeME1Opqew6Ut08TWy1lZTsNPGTt7Iy4+A/2UcHS3Pmz/AAlu7/n7K5M5qNJumprtdLbIKu5vkY2VhMbY2sBzke6AT8cr2OHp8cc5rFzZZbxeOguVTY73R1MUr2M7RvE0OOHA7HPzW3U9Njlx3c8pwz8u8tcHNDhycMhfP7mnSrKk0ZSCCptNBU2mJUGJU0xIyN1Fm1Rzb0m0RZS1FVG0ANDXkk8iDtjxXqei5b55jtj1X3Nti0W//CXNPu1EoHgOI/uuX1zx1+f56/ZXSeeGM+V5GXh0rZWNVBKlRBCSCqEYW2NTTBWsqSBVylTWkJIKqVJA5WkIgqgSmSQqhKJCdvgtOZelaZznRMbvgfmV1+lzu5rS6jxxuZXe4VUlx7CpO9JAKaMD3Wjf9V9H/DY8e5Pm7cP1LfLaKDTX2z0eG/MkLZKfilLcbODJOEj5Lp7ce2M9+VjVMPZ2ukqG+1wtOVGePdirG6ruFsl7W3UshPtQsP0C+Py1MrHovTlRsIKPg0KKcEqKaCppiVFOKSOtF9Jpc61OpxjExa345x+q7vR8d9TLGfU3/CenQZP9FDic9pLI8HvBccLH1zOZdfnZ+jTpcdcMbMSvHyu2wFZrFAIJFYQTl0VNq1xqSBWsqaYWkIwVpKSlSdGCqhJBVQkgq5QQTidIecAp26ORzH0hffVL2jO8TgPPBXb6Rf8AEpdTPsOd6ya1mrKpzPYliikb8Y2r63P328vH2bjpK7R/8srnbZDuYqhoHn6w/NVJvFN8VhLjUCr0nC0nJY3GcrP4U7Hoyo+06VtUx3L6WMn5L47nnbzZ4/nXp4+cYzSwtPSCg4glKmtTzRwRPlme2ONjeJznHAAU6tuoHNr36TnwVYbbaOKSBrt3y5y8eHcvW4vSrnjvO+WGXPJfDc9NX+l1DbW1dLlrgeCWIndjl5fU9Pn03J2ZN+POZzcZXiwMrl200556UqzsY6aJu8hdxMaOZd7v1wvY9Aw3zXkvtPLm6y/YmM+WZ0jCKa108AGAyMD6Lxevz7+a5X8XbxzWEjP5XBavQlIxTBqQoIJcBWuNTSBWkTogVpCMFaS+CIclUpJBWkTYnO6cpECrlJKrYCY4afJTnfB4zy5nrZ3r9qPcJ/n1XX6Xe3kLqJvFya51TqmsZI45LY2x58hhfYXLbyov0VXLHSTQMeWhxJ2PPYZRL4LW3rhrD/RzC47Y2CXwHavRdP22iLYfwMdGf/VxH6L5Lr529TnPz/d6fF/LjbAVyyrUSkAlkZGx8kr2sjYMuc47AeKXm3UFunMdS3uTUr5IqV5hs8B3kOxncOvl3L6L0/0/6c7+T3cfNzfEc2ussb6h0dPjhHVevXNvyzWhdU1FjuUUMbW/Y55mNnjPXJA4vMLyvUekx5cLfmS6/wBnTwcmrp3d54QeI8ua+Qr0I45e6/8A4j1jJJCeKjoiGNd0e/w/nRfScPHej6Lty+9n+zkt+rzflHRrIzgpWjlsvleou83o4zwyi56YlSYlMEEgWUBIKcTTC2xSYVwkgq4kwVpAWVUpJyrTU5VbJOSmAmPqFTnZpWPu5xqtvG6piPvMJb5hdPR3VmRcvmWOOzwPFb2ZG5e4D5r7CZy4dzyu3zpLeKKbhO3RVMtwtaIyYp+HG6eydw9D0nFoqAH3Z5R/9Z/VfLeqf91f0n7PR4P5beQVwbaqJ2z3JbJynVuqTqO4OtNulxa4XffSNP8AfcOmfw/mvpPTug+nPq8k8/s4ubm34jC1ElReayn09Y4wHP8AacdmMaObnHoB3+S9j28RzPPrSkstjooKK2gSSAYM7vbnd7zz3N7h5K7JImXdajaWvqLnS08e75qiNo8y4Lk57Jx5ZX4l/Zrh96Ooa+1y+slfYtOSBznuLaiqbuAOXC0/qvB6D06YYzn6j49o7OTmuV7MHg07bWUpipYt+E8UjurndVn1vUZZ7zya8OExkkdLoWcEQB7l8zyZfad0egrIIJQBymEgpAgkCCcBArSIXAVpKSQVcuiIFaRJAqoCyqJOVW0pTASDLSln7Hi57rON7H9oz2gunob5uNHK5pWb14nEI9VxOML6Pj/l9u3DZ52h9HT1M8UnEGMJ9YcsJ48ueGNibjLdvFFQSSuAbuOnitsueSInG7p6Obc616WpoJBh73OlI/8AI/thfLdbzzl6jLKfl/R6HHh24RtOdlzzz4U5t6VtWGkhdYqB5E0jM1UjTgsYeTM9569w817XpXR99+tn7T2/Vyc/Lr7McuZXGmpeGLAOMbL6PfhxMzaL1FZbJUgg/a6kAv8AWw54zsM/h8PHPgqxys+Dslx9/P4NUrKuasqnVFTIZJHnfu8h3BTbulJpkDbZLc1gnBbXzNy2AbGJh95/cT3d3NLPtxn2hLd+Gbs9I2giDjgzSDAC8bqeW81/J28eEwb1pikO0juZ5rwet5PiO3ijc4hgALxb7ugypAlAAlUCBSBApAkAwVUKkCtMUkCtJSIFOUqWVpKScq9kQTlJIKqeAh3JKiNZ1LQ/aIzhHHydmW1Wbjn1fZHN4ncK9ni6qXw5suJr1XQOB3C9Dj5oxuC7aqOR1XG0F2A5Tz8uMwp4Y3budn2oYR3NAXy0u8q7r7PTXVBpaGoqA3iMUbnhvfgZW2H2spGd8R82XieoqquaepdxTTSGSR3eT/ML7Ph7ccZjj7R5nJ5rHHO737Acsrf3QtTSF537sc/ommslY5WUUwqhC2aqb/07JBljD+Nw646DvTuUwm6eu66jMU8XAZKutkfLLI7ic55yXuXl8/Lly5ajqwwmM8sraIH1dSJJBz6dy4eozmGOo3wm7t0iz04ihAXzXUZ7rtxmozI2C5FoJSAEpgSUwQKWgQKQIFIFlAIFViVMFazJJAqyIFXC0kFOUtJyq2RZV7CCkHnqIRJz5KLFysbWWyOSMgAIxuWN3BZtrVbp0FxIbldmHV2M7xyot1h7KYO4OqOXqrljoY8eq3ejZ2cTR3LkxXU1swip5HOGcN5d6dt+C04PehTMury+LEPGTwgfJfV9NcrxTV8uDkk7mJnp6eSRzzKHAnOAurHkzk0yuMeI0MlRKexjPDxcLB3+K3nLjjj5rO4W3wytLFBQsy77yU9FycmWfLfybYyYR6qZktVKHPHkO5ZZ5TCeGmM23nT9Bw8JIXg9Xzb26+PFudMwNYMLxs7uumL+VkEEpgSU9ASUwkFAIFLQIFSCBQCBQCBVexaMFXKVhArSFpOVWySCqg0nKpOk5T2NKQBIyjRrT4mlTYYtga05AS0a+NhhV7JryXQF9M9o6hTldU45HqK1u7d5xzPNfQ9J1H2Y4+TDy191H2QOG7r0fq9zDt0sYnblrHFoK03j8lqr9LSOe/vKz5OWSHji22y2vGCQvI6nndWGDdrbTCNg2Xic3JuurGMo3YBctWklICSnoCSmAJT0VSCgzBU6BByWgkFLQMFAIOT2CDk5SIFaSlSBVSkkOVbCeIJ7LScoCsp7CcqgrKNhGUgrKNhamHG0gjKnLybXbpa2T5PDutOLnvHU5Y9zWauw5Jw36L0uPrGN4mJmsr2Sez9F149VLGd4699utPC4Zaufm6lWHG2m30YjaDwryuXl3XTIy0TcNAwuTKqi7lSpBcjQAuT0QlyrRbAuT0FAlGguAlTTIFIyBSBApEQKRkDsgktJV42imCrJOVREqgSSihWSglAlPYVkoCsp0IyUtmJJUhZlAI5JUPFLG08wiWw3hqKaI82rXHPKJsVTxMHIJ55USPfEAGrnql0KAolAElMAVQElMASnCf/Z"
-          alt="product image"
-        />
-      </div>
-
-      <div className="product-info">
-        <h1>Wireless Headphones</h1>
-        <p>$129.99</p>
-        <p className="description">
-          Experience high-quality sound with these wireless headphones.
-        </p>
-        <button
-          className="btn"
-          onClick={() => dispatch(addItem(1))} // When the button is clicked, send the addItem action to Redux
-        >
-          Add to cart
-        </button>
-        <button style={{color: 'red'}}
-          className="btn"
-          onClick={() => dispatch(removeItem(1))} // When the button is clicked, send the addItem action to Redux
-        >
-          Remove from cart
-        </button>
+      <div className="grid">
+        {productSelector &&
+          productSelector.map((item) => (
+            <div key={item.id} className="card">
+              <img alt={item.name} src={item.thumbnail} />
+              <div className="content">
+                <div className="title">{item.title}</div>
+                <div className="brand">{item.brand}</div>
+                <div className="price">{item.price}</div>
+                <div className="rating">{item.rating}</div>
+                {
+                  cartSelector.find(cartItem => cartItem.id === item.id) ?
+                  <button onClick={() => dispatch(removeItem(item))} className="btn" style={{color: "White", backgroundColor: 'Red'}}>Remove from cart</button>
+                  : <button className="btn" onClick={() => dispatch(addItem(item))}>Add to cart</button>
+                }
+                
+              </div>
+            </div>
+          ))} 
       </div>
     </>
   );

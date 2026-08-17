@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const AddToCart = () => {
   // useSelector lets React components read data from the Redux store
@@ -7,8 +8,12 @@ const AddToCart = () => {
   console.log(cartSelector);
   return (
     <div className="cart">
-      <img src="https://img.icons8.com/?size=100&id=9671&format=png&color=000000" />
-      <span className="cart-count">{cartSelector.length ? cartSelector.length : 0}</span>
+      <Link to="/cart">
+        <img src="https://img.icons8.com/?size=100&id=9671&format=png&color=000000" />
+        <span className="cart-count">
+          {cartSelector.length ? cartSelector.length : 0}
+        </span>
+      </Link>
     </div>
   );
 };

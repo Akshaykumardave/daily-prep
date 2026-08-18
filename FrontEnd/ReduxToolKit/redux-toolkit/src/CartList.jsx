@@ -1,13 +1,38 @@
 import { useSelector } from "react-redux";
 
 function CartList() {
-    const cartSelector = useSelector((state) => state.cart.items);
-    console.log('cart item list', cartSelector);
-    return (
-        <>
-            <h1>Cart List Page</h1>
-        </>
-    );
+  const cartSelector = useSelector((state) => state.cart.items);
+  console.log("cart item list", cartSelector);
+  return (
+    <>
+      <div className="cart-container">
+        <div className="cart-header">
+          <h2>Your Cart Items</h2>
+          <span>{cartSelector.length} items</span>
+        </div>
+        {
+            cartSelector.length > 0 ? cartSelector.map((item) => (
+                <div key={item.id} className="cart-item">
+                    <div className="item-info">
+                        <img src={item.thumbnail}/>
+                        <div className="item-details">
+                            <h4>{item.title}</h4>
+                            <p>{item.brand}</p>
+                        </div>
+                    </div>
+                    <div className="item-actions">
+                        <span className="price">{item.price}</span>
+                        <button className="btn"> Remove</button>
+                    </div>
+                </div>
+  )) : null
+        }
+        <div className="cart-footer">
+            Total : {cartSelector.reduce((sum, item) => sum+item.price,0)}
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default CartList;

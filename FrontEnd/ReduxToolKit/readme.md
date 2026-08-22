@@ -36,3 +36,40 @@ Every Action must have at least a **type** associated with it and data required 
 <img src="docs/image-2.png" width="500px" height="300px">
 
 * There can either be one reducer if it is a simple app or multiple recuders taking care of different parts or slices of the global state in a bigger application. So whenever an action is dispatched, all the reducers are activated.
+
+
+# Redux-Toolkit
+The Redux Toolkit package is intended to be the standard way to write Redux logic. It was originally created to help address three common concerns about Redux:
+
+- "Configuring a Redux store is too complicated"
+- "I have to add a lot of packages to get Redux to do anything useful"
+- "Redux requires too much boilerplate code"
+
+#### Steps - 
+1. Create slice using `CreateSlice` function. Slice contains of Actions and Reducers.
+    - Example:
+        ![alt text](image-2.png)
+
+2. Define initial value.
+    - Example
+        ![alt text](image-3.png)
+3. Expot Actions and Reducers.
+    - Example
+        ![alt text](image-4.png)
+
+4. Create Store using `configureStore`
+    ![alt text](image-5.png)
+
+5. Provide name of the store and list of recuders, available in `Slice.js`
+6. Finally wrap the main Application root element with `<Provider/>`
+        ![alt text](image-6.png)
+
+7. Read values from store using `useSelector` from redux-toolkit.
+   - Example
+   - ![alt text](image-7.png)
+
+8. Change the value in the store using with action defined in `Slice.js` using `useDispatch`
+    - Example
+    - ![alt text](image-8.png)
+    - ![alt text](image-9.png)
+    - call action from `Slice.js` and pass inside `dispatch(removeAllItems())`

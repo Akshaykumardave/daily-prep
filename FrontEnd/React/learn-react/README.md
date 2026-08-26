@@ -24,3 +24,5 @@ If you are developing a production application, we recommend using TypeScript wi
 #### eslint.config.js - It is the primary configuration file used in ESLint, marking the transition to the modern Flat config system. EXMA script configurations, rules for development standards.
 
 #### index.html - First file to be executed in browser.
+
+#### JSX - Javascript syntax extension. Allows us to write HTML code in the javascript file.

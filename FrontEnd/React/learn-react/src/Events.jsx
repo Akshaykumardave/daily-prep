@@ -1,3 +1,7 @@
+function fruitCall() {
+    alert("outside");
+  }
+
 function EventsTest() {
   function fruitCall() {
     console.log("inside");

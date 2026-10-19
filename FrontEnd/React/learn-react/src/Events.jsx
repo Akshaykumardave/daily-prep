@@ -1,4 +1,4 @@
-function fruitCall() {
+function fruitCall() { // this outside function is called only when the inner function is not defined.
     alert("outside");
   }
 

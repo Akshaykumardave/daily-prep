@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Counter from "./Counter";
+import ToggleApp from "./Toggle";
+import MultiConditionEle from "./MultiConditionEle";
 
 // function App() {
 //   const name = 'Akshay Kumar Dave';
@@ -60,6 +62,11 @@ function App() {
       </button>
 
       <Counter/>
+
+      <ToggleApp/>
+      <br></br>
+      <br></br>
+      <MultiConditionEle/>
     </>
   );
 }

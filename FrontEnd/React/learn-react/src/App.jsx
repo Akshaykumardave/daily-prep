@@ -4,6 +4,7 @@ import { useState } from "react";
 import Counter from "./Counter";
 import ToggleApp from "./Toggle";
 import MultiConditionEle from "./MultiConditionEle";
+import PropsExample from "./PropsExample";
 
 // function App() {
 //   const name = 'Akshay Kumar Dave';
@@ -67,6 +68,7 @@ function App() {
       <br></br>
       <br></br>
       <MultiConditionEle/>
+      <PropsExample name={'Akshay'} age={30} email={"akshaydave545484@gmail.com"}/>
     </>
   );
 }

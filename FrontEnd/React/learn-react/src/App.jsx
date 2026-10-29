@@ -5,6 +5,8 @@ import Counter from "./Counter";
 import ToggleApp from "./Toggle";
 import MultiConditionEle from "./MultiConditionEle";
 import PropsExample from "./PropsExample";
+import InputElement from "./InputElement";
+import ControlledComponent from "./ControlledComponent";
 
 // function App() {
 //   const name = 'Akshay Kumar Dave';
@@ -69,6 +71,12 @@ function App() {
       <br></br>
       <MultiConditionEle/>
       <PropsExample name={'Akshay'} age={30} email={"akshaydave545484@gmail.com"}/>
+
+      <br/>
+      <InputElement/>
+
+      <br/>
+      <ControlledComponent/>
     </>
   );
 }
